@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>测试结果 — 大五人格</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: "宋体", SimSun, serif;
+      font-size: 16px;
+      background-color: #f8f9fa;
+      margin: 20px;
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    #chartContainer {
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>你的大五人格分布</h1>
+  <div id="chartContainer">
+    <canvas id="radarChart"></canvas>
+  </div>
+
+  <script>
+    const answers = JSON.parse(localStorage.getItem('oceanAnswers') || '{}');
+    if (!answers.q1) {
+      document.body.innerHTML = '<p>未检测到答题记录，请先返回 <a href="index.html">测试页面</a> 完成答题。</p>';
+      throw new Error('No answers');
+    }
+
+    const scores = {
+      开放性: (answers.q1 + answers.q2) / 2,
+      尽责性: (answers.q3 + answers.q4) / 2,
+      外向性: (answers.q5 + answers.q6) / 2,
+      宜人性: (answers.q7 + answers.q8) / 2,
+      神经质: (answers.q9 + answers.q10) / 2
+    };
+
+    new Chart(document.getElementById('radarChart'), {
+      type: 'radar',
+      data: {
+        labels: Object.keys(scores),
+        datasets: [{
+          label: '分数（1–5）',
+          data: Object.values(scores),
+          backgroundColor: 'rgba(0, 123, 255, 0.2)',
+          borderColor: 'rgba(0, 123, 255, 1)',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        scale: {
+          ticks: {
+            beginAtZero: true,
+            max: 5,
+            stepSize: 1
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>大五人格测试</title>
+  <style>
+    body {
+      font-family: "宋体", SimSun, serif;
+      font-size: 16px;
+      background-color: #f8f9fa;
+      margin: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .question-block {
+      width: 80%;
+      max-width: 600px;
+      background: #ffffff;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .options {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .option-button {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #007bff;
+      border-radius: 4px;
+      background-color: white;
+      cursor: pointer;
+      user-select: none;
+      font-size: 14px;
+    }
+    .option-button.selected {
+      background-color: #007bff;
+      color: white;
+    }
+    button#submitBtn {
+      font-size: 16px;
+      padding: 10px 30px;
+      margin: 20px auto;
+      border: none;
+      border-radius: 6px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      display: block;
+    }
+    button#submitBtn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>大五人格测试（OCEAN）</h1>
+  <form id="testForm">
+
+    <!-- 示例题（每维两个题，共10题，可按此格式扩展） -->
+    <div class="question-block" data-q="q1">
+      <p><strong>1. 我喜欢探索新的概念和创意。</strong></p>
+      <div class="options">
+        <div class="option-button" data-value="1">非常不同意</div>
+        <div class="option-button" data-value="2">不同意</div>
+        <div class="option-button" data-value="3">一般</div>
+        <div class="option-button" data-value="4">同意</div>
+        <div class="option-button" data-value="5">非常同意</div>
+      </div>
+      <input type="hidden" name="q1" value="">
+    </div>
+
+    <div class="question-block" data-q="q2">
+      <p><strong>2. 我对艺术、文学或音乐很感兴趣。</strong></p>
+      <div class="options">
+        <div class="option-button" data-value="1">非常不同意</div>
+        <div class="option-button" data-value="2">不同意</div>
+        <div class="option-button" data-value="3">一般</div>
+        <div class="option-button" data-value="4">同意</div>
+        <div class="option-button" data-value="5">非常同意</div>
+      </div>
+      <input type="hidden" name="q2" value="">
+    </div>
+
+    <div class="question-block" data-q="q3">
+      <p><strong>3. 我做事很有条理。</strong></p>
+      <div class="options">
+        <div class="option-button" data-value="1">非常不同意</div>
+        <div class="option-button" data-value="2">不同意</div>
+        <div class="option-button" data-value="3">一般</div>
+        <div class="option-button" data-value="4">同意</div>
+        <div class="option-button" data-value="5">非常同意</div>
+      </div>
+      <input type="hidden" name="q3" value="">
+    </div>
+
+    <div class="question-block" data-q="q4">
+      <p><strong>4. 我通常会按时完成任务。</strong></p>
+      <div class="options">
+        <div class="option-button" data-value="1">非常不同意</div>
+        <div class="option-button" data-value="2">不同意</div>
+        <div class="option-button" data-value="3">一般</div>
+        <div class="option-button" data-value="4">同意</div>
+        <div class="option-button" data-value="5">非常同意</div>
+      </div>
+      <input type="hidden" name="q4" value="">
+    </div>
+
+    <div class="question-block" data-q="q5">
+      <p><strong>5. 我喜欢与他人交往。</strong></p>
+      <div class="options">
+        <div class="option-button" data-value="1">非常不同意</div>
+        <div class="option-button" data-value="2">不同意</div>
+        <div class="option-button" data-value="3">一般</div>
+        <div class="option-button" data-value="4">同意</div>
+        <div class="option-button" data-value="5">非常同意</div>
+      </div>
+      <input type="hidden" name="q5" value="">
+    </div>
+
+    <div class="question-block" data-q="q6">
+      <p><strong>6. 我精力充沛、喜欢热闹的场合。</strong></p>
+      <div class="options">
+        <div class="option-button" data-value="1">非常不同意</div>
+        <div class="option-button" data-value="2">不同意</div>
+        <div class="option-button" data-value="3">一般</div>
+        <div class="option-button" data-value="4">同意</div>
+        <div class="option-button" data-value="5">非常同意</div>
+      </div>
+      <input type="hidden" name="q6" value="">
+    </div>
+
+    <div class="question-block" data-q="q7">
+      <p><strong>7. 我关心他人的感受。</strong></p>
+      <div class="options">
+        <div class="option-button" data-value="1">非常不同意</div>
+        <div class="option-button" data-value="2">不同意</div>
+        <div class="option-button" data-value="3">一般</div>
+        <div class="option-button" data-value="4">同意</div>
+        <div class="option-button" data-value="5">非常同意</div>
+      </div>
+      <input type="hidden" name="q7" value="">
+    </div>
+
+    <div class="question-block" data-q="q8">
+      <p><strong>8. 我愿意帮助别人解决问题。</strong></p>
+      <div class="options">
+        <div class="option-button" data-value="1">非常不同意</div>
+        <div class="option-button" data-value="2">不同意</div>
+        <div class="option-button" data-value="3">一般</div>
+        <div class="option-button" data-value="4">同意</div>
+        <div class="option-button" data-value="5">非常同意</div>
+      </div>
+      <input type="hidden" name="q8" value="">
+    </div>
+
+    <div class="question-block" data-q="q9">
+      <p><strong>9. 我经常感到焦虑或紧张。</strong></p>
+      <div class="options">
+        <div class="option-button" data-value="1">非常不同意</div>
+        <div class="option-button" data-value="2">不同意</div>
+        <div class="option-button" data-value="3">一般</div>
+        <div class="option-button" data-value="4">同意</div>
+        <div class="option-button" data-value="5">非常同意</div>
+      </div>
+      <input type="hidden" name="q9" value="">
+    </div>
+
+    <div class="question-block" data-q="q10">
+      <p><strong>10. 我容易受到情绪波动的影响。</strong></p>
+      <div class="options">
+        <div class="option-button" data-value="1">非常不同意</div>
+        <div class="option-button" data-value="2">不同意</div>
+        <div class="option-button" data-value="3">一般</div>
+        <div class="option-button" data-value="4">同意</div>
+        <div class="option-button" data-value="5">非常同意</div>
+      </div>
+      <input type="hidden" name="q10" value="">
+    </div>
+
+    <button id="submitBtn" type="button">提交并查看结果</button>
+  </form>
+
+  <script>
+    document.querySelectorAll('.option-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const container = btn.closest('.question-block');
+        container.querySelectorAll('.option-button').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        container.querySelector(`input[name="${container.dataset.q}"]`).value = btn.dataset.value;
+      });
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      const data = {};
+      for (let i = 1; i <= 10; i++) {
+        const val = document.querySelector(`input[name="q${i}"]`).value;
+        if (!val) {
+          alert(`请回答第 ${i} 题`);
+          return;
+        }
+        data[`q${i}`] = Number(val);
+      }
+      localStorage.setItem('oceanAnswers', JSON.stringify(data));
+      window.location.href = 'result.html';
+    });
+  </script>
+
+</body>
+</html>
